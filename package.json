@@ -4,18 +4,25 @@
    "description": "Sofware Engineering Group Project",
    "main": "index.js",
    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
+      "test": "echo \"No tests\" && exit 0",
       "format": "prettier --write .",
       "format:check": "prettier --check .",
       "lint": "npm --prefix frontend run lint && npm --prefix backend run lint",
       "lint:fix": "npm --prefix frontend run lint:fix && npm --prefix backend run lint:fix",
       "frontend:dev": "npm --prefix frontend run dev",
       "backend:dev": "npm --prefix backend run dev",
-      "dev": "npm --prefix backend run dev & npm --prefix frontend run dev"
+      "dev": "npm --prefix backend run dev & npm --prefix frontend run dev",
+      "prepare": "husky"
    },
    "repository": {
       "type": "git",
       "url": "git+https://github.com/Calpoly-Yelp/UMami.git"
+   },
+   "lint-staged": {
+      "**/*.{js,jsx}": [
+         "prettier --write",
+         "eslint --fix"
+      ]
    },
    "keywords": [],
    "author": "",
@@ -29,6 +36,8 @@
       "eslint": "^9.39.2",
       "eslint-config-prettier": "^10.1.8",
       "eslint-plugin-prettier": "^5.5.5",
+      "husky": "^9.1.7",
+      "lint-staged": "^16.2.7",
       "prettier": "^3.8.1"
    }
 }
